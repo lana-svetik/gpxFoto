@@ -79,13 +79,20 @@ def get_default_output_path(input_dir: str, filename: str = None) -> str:
     
     Args:
         input_dir: Eingabeverzeichnispfad
-        filename: Name der Ausgabedatei (wenn None, verwende "gpxFoto.gpx")
+        filename: Name der Ausgabedatei (wenn None, den Verzeichnisnamen verwenden)
         
     Returns:
         Standardausgabepfad für die GPX-Datei
     """
     if filename is None:
-        filename = "gpxFoto.gpx"
+        # Verzeichnisnamen extrahieren und für die GPX-Datei verwenden
+        dir_name = os.path.basename(os.path.normpath(input_dir))
+        # Ungültige Zeichen für Dateinamen entfernen
+        dir_name = ''.join(c for c in dir_name if c.isalnum() or c in (' ', '_', '-'))
+        filename = f"{dir_name.strip()}.gpx"
+        # Wenn der Verzeichnisname leer ist oder zu einem leeren Dateinamen führt, Standard verwenden
+        if not filename or filename == ".gpx":
+            filename = "gpxFoto.gpx"
     
     return os.path.join(input_dir, filename)
 
