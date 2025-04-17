@@ -1,6 +1,6 @@
 # gpxFoto
 
-Ein leichtgewichtiges Command-Line-Tool (CLI) zur Erstellung von GPX-Tracks aus geogetaggten Fotos.
+Ein leichtgewichtiges Command-Line-Tool (CLI) zur Erstellung von GPX-Tracks aus geogetaggten Fotos. Erstellt unter Anleitung von Claude 3.7 Sonnet.
 
 ## Beschreibung
 
